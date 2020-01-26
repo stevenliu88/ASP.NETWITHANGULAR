@@ -1,0 +1,11 @@
+.PaymentTable{
+  display: flex;
+  flex-direction: column;
+}
+
+.PaymentTable > * {
+   width:100%;
+}
+.field {
+  width: 100%;
+}

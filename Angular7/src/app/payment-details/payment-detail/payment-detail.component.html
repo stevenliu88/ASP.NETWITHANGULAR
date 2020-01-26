@@ -1,1 +1,26 @@
 <p>payment-detail works!</p>
+
+<form [formGroup]="PaymentDetailForm" class="PaymentTable">
+    <mat-form-field>
+        <input matInput placeholder="CardOwnerName" class="field" formControlName="CardOwnerName">  
+        <mat-error *ngIf="CardOwnerName.hasError('required')">Please enter a valid Owner Name</mat-error>
+    </mat-form-field>
+      <br>
+      <mat-form-field>
+        <input matInput placeholder="CardNumber" class="field" formControlName="CardNumber">
+        <mat-error *ngIf="CardNumber.hasError('required')">Please enter a Card Number</mat-error>
+        <mat-error *ngIf="CardNumber.hasError('maxlength') || CardNumber.hasError('minlength')">Please enter 16 digital Number</mat-error>
+      </mat-form-field>
+      <br>
+      <mat-form-field>
+        <input matInput placeholder="ExpirationDate" class="field" formControlName="ExpirationDate">
+        <mat-error *ngIf="ExpirationDate.hasError('required') || ExpirationDate.hasError('maxlength') || ExpirationDate.hasError('minlength')">Please enter a valid Expiration Date</mat-error>
+      </mat-form-field>
+      <br>
+      <mat-form-field>
+        <input matInput placeholder="CVV" class="field" formControlName="CVV">
+        <mat-error *ngIf="CVV.hasError('required') || CVV.hasError('maxlength') || CVV.hasError('minlength')">Please enter a valid Owner Name</mat-error>
+      </mat-form-field>
+      <br>
+      <button mat-raised-button color="primary" [disabled] = "paymentDetailFormValidation" (click) = "submit()">Submit</button>
+</form>
