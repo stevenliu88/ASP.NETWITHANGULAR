@@ -81,7 +81,6 @@ namespace WebApplication.Controllers
         {
             _context.paymentDetails.Add(paymentDetail);
             await _context.SaveChangesAsync();
-
             return CreatedAtAction("GetPaymentDetail", new { id = paymentDetail.PMId }, paymentDetail);
         }
 
