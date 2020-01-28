@@ -10,6 +10,7 @@ import { PaymentDetailService } from './shared/payment-detail.service';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {HttpClientModule} from '@angular/common/http';
+import { ToastrModule } from 'ngx-toastr';
 
 import {
   MatButtonModule,
@@ -35,7 +36,11 @@ import {
     MatInputModule,
     MatRippleModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ToastrModule.forRoot({
+      timeOut: 4000,
+      positionClass: 'toast-bottom-center',
+      preventDuplicates: true })
   ],
   exports: [
     MatButtonModule,

@@ -1,8 +1,8 @@
 <p>payment-detail works!</p>
 
-<form [formGroup]="PaymentDetailForm" class="PaymentTable">
+<form [formGroup]="PaymentDetailForm" #formDirective="ngForm" class="PaymentTable" (ngSubmit) = "submit(formDirective)">
     <mat-form-field>
-        <input matInput placeholder="CardOwnerName" class="field" formControlName="CardOwnerName">  
+        <input matInput placeholder="CardOwnerName" class="field" formControlName="CardOwnerName">
         <mat-error *ngIf="CardOwnerName.hasError('required')">Please enter a valid Owner Name</mat-error>
     </mat-form-field>
       <br>
@@ -22,5 +22,5 @@
         <mat-error *ngIf="CVV.hasError('required') || CVV.hasError('maxlength') || CVV.hasError('minlength')">Please enter a valid Owner Name</mat-error>
       </mat-form-field>
       <br>
-      <button mat-raised-button color="primary" [disabled] = "paymentDetailFormValidation" (click) = "submit()">Submit</button>
+      <button mat-raised-button color="primary" [disabled] = "paymentDetailFormValidation" type="submit">Submit</button>
 </form>
